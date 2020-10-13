@@ -4,9 +4,13 @@ let extraCanvas;
 
 
 function setup() {
-  createCanvas(windowWidth, 500);
-  extraCanvas = createGraphics(windowWidth, 500);
-  extraCanvas.clear();
+  createCanvas(windowWidth, windowHeight);
+
+
+  translate(width / 2, height / 2);
+  extraCanvas = createGraphics(700, 500); // is there a way to move this canvas to middle of page?
+
+
 
   SadSlider = createSlider(0, 700, 0);
 
@@ -21,6 +25,7 @@ function draw() {
 
   background(0);
   extraCanvas.clear();
+  extraCanvas.background(255);
 
   for (var i = 0; i < SadSlider.value(); i++) {
     extraCanvas.drop[i].show();
@@ -36,11 +41,11 @@ function Drop() {
   this.x = random(0, width);
   this.y = random(0, -height);
 
-  this.color1 = [13, 19, 33]; // set color1 RGB value
-  this.color2 = [29, 45, 68]; // set color2 RGB value
-  this.color3 = [62, 92, 118]; // set color3 RGB value
-  this.color4 = [116, 140, 171]; // set color4 RGB value
-  this.colors = [this.color1, this.color2, this.color3, this.color4]; // set a four color palette
+  this.color1 = [13, 19, 33] // set color1 RGB value
+  this.color2 = [29, 45, 68] // set color2 RGB value
+  this.color3 = [62, 92, 118] // set color3 RGB value
+  this.color4 = [116, 140, 171] // set color4 RGB value
+  this.colors = [this.color1, this.color2, this.color3, this.color4] // set a four color palette
 
 
   this.show = function() {
